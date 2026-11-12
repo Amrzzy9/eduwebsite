@@ -70,7 +70,7 @@ export default function Home() {
             <img 
               src="/dr-yasin.png" 
               alt="Person" 
-              className="absolute bottom-0 h-[85%] w-auto object-contain pointer-events-none" 
+              className="absolute bottom-0 h-[110%] w-auto object-contain pointer-events-none" 
             />
 
             <div className="relative z-10 w-full p-8">
