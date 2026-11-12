@@ -17,9 +17,7 @@ const normalizePhone = (v: string) => {
 export default function Register() {
   const nav = useNavigate()
   const [f, setF] = useState({ name: '', email: '', phone: '', pw: '', pw2: '' })
-  const [err, setErr] = useState(''); const [msg, setMsg] = useState('')
-  const [step, setStep] = useState<'form' | 'code'>('form')
-  const [code, setCode] = useState(''); const [busy, setBusy] = useState(false)
+  const [err, setErr] = useState(''); const [msg, setMsg] = useState(''); const [busy, setBusy] = useState(false)
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement>) => setF({ ...f, [k]: e.target.value })
 
   const submit = async (e: FormEvent) => {
@@ -31,39 +29,15 @@ export default function Register() {
     if (f.pw.length < 8) return setErr('كلمة المرور 8 أحرف على الأقل')
     if (f.pw !== f.pw2) return setErr('كلمتا المرور غير متطابقتين')
     setBusy(true)
-    const { data, error } = await supabase.auth.signUp({ email, password: f.pw, options: { data: { full_name: f.name.trim(), phone } } })
+    const { data, error } = await supabase.auth.signUp({
+      email, password: f.pw,
+      options: { emailRedirectTo: window.location.origin + '/login', data: { full_name: f.name.trim(), phone } }
+    })
     setBusy(false)
     if (error) return setErr(error.message)
     if (data.session) return nav('/dashboard', { replace: true })
-    setStep('code'); setMsg('أرسلنا كود التأكيد إلى بريدك. اكتبه هنا.')
+    setMsg('تم إنشاء الحساب. افتح بريدك واضغط على رابط التأكيد، ثم سجّل الدخول. (شوف مجلد Spam لو مجاش)')
   }
-
-  const verify = async (e: FormEvent) => {
-    e.preventDefault(); setErr(''); setMsg('')
-    if (!/^\d{6,8}$/.test(code.trim())) return setErr('الكود من 6 إلى 8 أرقام')
-    setBusy(true)
-    const { data, error } = await supabase.auth.verifyOtp({ email: f.email.trim(), token: code.trim(), type: 'signup' })
-    setBusy(false)
-    if (error) return setErr('الكود غير صحيح أو انتهت صلاحيته')
-    if (data.session) nav('/dashboard', { replace: true })
-  }
-
-  const resend = async () => {
-    setErr(''); setMsg('')
-    const { error } = await supabase.auth.resend({ type: 'signup', email: f.email.trim() })
-    if (error) setErr(error.message); else setMsg('تم إرسال كود جديد إلى بريدك.')
-  }
-
-  if (step === 'code') return (
-    <main className="max-w-md mx-auto px-4 py-12"><form onSubmit={verify} className="glass rounded-3xl p-6 space-y-4">
-      <h1 className="text-2xl">تأكيد البريد</h1>
-      <p className="text-muted text-sm">أرسلنا كودًا إلى <b className="text-white" dir="ltr">{f.email.trim()}</b></p>
-      <input className="input text-center tracking-[0.4em]" dir="ltr" inputMode="numeric" maxLength={8} placeholder="------"
-        value={code} onChange={e => setCode(e.target.value.replace(/\D/g, ''))} />
-      {err && <p className="text-red-400 text-sm">{err}</p>}{msg && <p className="text-sky text-sm">{msg}</p>}
-      <button className="btn btn-p w-full" disabled={busy}>{busy ? '...' : 'تأكيد'}</button>
-      <button type="button" onClick={resend} className="text-sm text-sky">إعادة إرسال الكود</button>
-    </form></main>)
 
   return (<main className="max-w-md mx-auto px-4 py-12"><form onSubmit={submit} className="glass rounded-3xl p-6 space-y-4" noValidate>
     <h1 className="text-2xl">إنشاء حساب</h1>
