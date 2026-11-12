@@ -59,17 +59,28 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[26rem] aspect-square">
+
+<div className="relative mx-auto w-full max-w-[26rem] aspect-square">
           <div className="absolute -inset-6 rounded-full border border-dashed border-white/10" />
           <div
-            className="absolute inset-0 rounded-full border border-white/10 overflow-hidden flex items-end p-8"
+            className="absolute inset-0 rounded-full border border-white/10 overflow-hidden flex items-end justify-center"
             style={{background:'radial-gradient(circle at 50% 40%,rgba(196,140,255,.55),rgba(124,58,237,.35) 45%,#222a4a 80%)'}}
           >
-            <div className="relative z-10 w-full">
+            {/* Person image clipped inside the circle */}
+            <img 
+              src="/public/dr-yasin.png" 
+              alt="Person" 
+              className="absolute bottom-0 h-[85%] w-auto object-contain pointer-events-none" 
+            />
+
+            <div className="relative z-10 w-full p-8">
               <LastWatched />
             </div>
           </div>
         </div>
+
+
+        
       </section>
 
       <section className="glass rounded-3xl p-6 mb-8">
