@@ -27,12 +27,12 @@ export default function Home() {
           </span>
 
           <h1 className="mt-6 leading-[1.65] text-white">
-            <span style={{ fontSize: '60px' }}>
+            <span style={{ fontSize: '130px' }}>
               أنت قدّها .....
             </span>
             <br />
             <span
-              style={{ fontSize: '35px' }}
+              style={{ fontSize: '60px' }}
               className="bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent"
             >
               مهما كانت التحديات.
