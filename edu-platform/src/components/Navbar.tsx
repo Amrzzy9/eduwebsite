@@ -13,7 +13,7 @@ export default function Navbar() {
   const row = ({ isActive }: { isActive: boolean }) => 'px-3 py-3 rounded-xl font-bold ' + (isActive ? 'bg-[#a881fb] text-white' : 'text-white hover:bg-white/10')
   const out = async () => { await supabase.auth.signOut(); setOpen(false); nav('/') }
   return (
-    <header className="sticky top-0 z-50 bg-[#0a0f1f]/95 backdrop-blur border-b border-white/5">
+    <header className="sticky top-0 z-50 bg-[#0a0f1f] border-b border-white/5">
       <nav className="max-w-6xl mx-3 md:mx-auto my-3 rounded-2xl border border-white/10 px-4 py-3 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-3">
           <span className="grid place-items-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#fb923c] to-[#e4572e] text-white"><GraduationCap /></span>
