@@ -11,10 +11,20 @@ export default function Home() {
     .then(({ data, error }) => error ? setErr(true) : setCourses(data as Course[])) }, [])
   return (<main className="max-w-6xl mx-auto px-4">
     <section className="pt-14 pb-16 grid md:grid-cols-2 gap-10 items-center">
-      <div><h1 className="text-4xl md:text-5xl font-extrabold leading-[1.7] text-white">تعلّم بخطوات واضحة، <span className="text-sky">وتقدّم بثقة</span></h1>
-        <p className="mt-4 text-muted text-lg">عايزك تبقي فاهم ان الفترة دي مختلفة عن أي فترة تانية عشتها في حياتك لانك بتحدد فيها طريقك اللي هتكمل بيه باقي حياتك. عشان كدا لازم تتأكد ان كلنا هنكون واقفين جنبك وبندعمك وبنساعدك...</p>
-        <div className="mt-8 flex gap-3 flex-wrap"><Link to="/courses" className="btn btn-p">استكشف الكورسات</Link><Link to="/register" className="btn">سجّل الآن</Link></div></div>
-      <div className="aspect-[4/3] rounded-[2rem] bg-gradient-to-br from-sky to-brand relative overflow-hidden p-5 flex items-end shadow-[0_0_60px_rgba(70,224,255,.25)]"><div className="w-full"><LastWatched /></div></div>
+      <div>
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-bold text-sky"><span className="w-2 h-2 rounded-full bg-[#fb923c]" />تيم الشاطر يرحب بكم</span>
+        <h1 className="mt-6 text-5xl md:text-6xl font-extrabold leading-[1.65] text-white">خليك واثق في نفسك ..... <br />
+          <span className="bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent">انت تقدر تعمل المستحيل</span></h1>
+        <p className="mt-5 text-muted text-lg leading-loose max-w-xl">عايزك تبقى فاهم ان الفترة دي مختلفة عن أي فترة تانية عشتها في حياتك لانك بتحدد فيها طريقك اللي هتكمل بيه باقي حياتك.</p>
+        <div className="mt-8 flex gap-3 flex-wrap"><Link to="/courses" className="btn btn-p">استكشف الكورسات</Link><Link to="/register" className="btn">سجّل الآن</Link></div>
+      </div>
+      <div className="relative mx-auto w-full max-w-[26rem] aspect-square">
+        <div className="absolute -inset-6 rounded-full border border-dashed border-white/10" />
+        <div className="absolute inset-0 rounded-full border border-white/10 bg-[#222a4a] overflow-hidden flex items-end p-8">
+          <div className="absolute left-[12%] top-[22%] w-[62%] h-[62%] rounded-full bg-gradient-to-br from-[#c27bff] to-[#7c3aed] opacity-90" />
+          <div className="relative z-10 w-full"><LastWatched /></div>
+        </div>
+      </div>
     </section>
     <section className="glass rounded-3xl p-6 mb-8"><h2 className="text-2xl font-extrabold mb-2 text-white">عن المنصة</h2><p className="text-muted">نؤمن بأن التعلم الجيد يبدأ بترتيب واضح: وحدات ثم دروس، وتقدّم تتابعه خطوة بخطوة.</p></section>
     <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
