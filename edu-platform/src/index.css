@@ -3,31 +3,30 @@
 @tailwind utilities;
 
 /* ===== الخطوط ===== */
-@font-face{font-family:'Hala';src:url('/fonts/Hala-Bold.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Hala';src:url('/fonts/Hala-Bold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Hala';src:url('/fonts/Hala-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:'Hala';src:url('/fonts/Hala-Bold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
-@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-bold.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-heavy.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-medium.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-thin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 
 /* ===== الأساسيات ===== */
 body{@apply bg-page text-ink font-sans;
-  background-image:radial-gradient(60rem 30rem at 85% -5%,rgba(70,224,255,.22),transparent 60%),radial-gradient(50rem 30rem at 0% 40%,rgba(37,135,168,.25),transparent 60%);
+  background-image:radial-gradient(55rem 28rem at 15% -5%,rgba(168,129,251,.18),transparent 60%),radial-gradient(45rem 28rem at 100% 45%,rgba(251,146,60,.07),transparent 60%);
   background-attachment:fixed}
 button,input,select,textarea{font-family:inherit}
 
 /* ===== زجاج سائل ===== */
 .glass{position:relative;
-  background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.06) 45%,rgba(70,224,255,.12));
-  backdrop-filter:blur(24px) saturate(190%) brightness(1.1);-webkit-backdrop-filter:blur(24px) saturate(190%) brightness(1.1);
-  border:1px solid rgba(255,255,255,.32);
-  box-shadow:0 10px 40px rgba(0,0,0,.35),0 0 30px rgba(70,224,255,.12),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.12),inset 0 0 22px rgba(255,255,255,.06)}
+  background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.04) 45%,rgba(168,129,251,.10));
+  backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 10px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 22px rgba(255,255,255,.04)}
 .glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:linear-gradient(115deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 35%)}
+  background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 35%)}
 
 .skeleton{@apply animate-pulse bg-mist rounded-2xl}
-.btn{@apply inline-block rounded-xl px-5 py-2.5 font-semibold border border-sky text-sky transition hover:bg-white/10}
-.btn-p{@apply bg-sky text-page border-sky hover:bg-white}
-.input{@apply w-full rounded-xl border border-white/20 bg-card px-4 py-2.5 text-ink}
+.btn{@apply inline-block rounded-xl px-6 py-2.5 font-bold border border-sky text-sky transition hover:bg-white/10}
+.btn-p{@apply bg-[#a881fb] text-white border-[#a881fb] hover:bg-[#b99bfc]}
+.input{@apply w-full rounded-xl border border-white/15 bg-card px-4 py-2.5 text-ink}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
