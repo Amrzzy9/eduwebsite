@@ -68,7 +68,7 @@ export default function Home() {
           >
             {/* Person image clipped inside the circle */}
             <img 
-              src="edu-platform/public/dr-yasin.png" 
+              src="/dr-yasin.png" 
               alt="Person" 
               className="absolute bottom-0 h-[85%] w-auto object-contain pointer-events-none" 
             />
