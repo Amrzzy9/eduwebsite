@@ -12,7 +12,7 @@ export default function Home() {
   return (<main className="max-w-6xl mx-auto px-4">
     <section className="pt-14 pb-16 grid md:grid-cols-2 gap-10 items-center">
       <div><h1 className="text-4xl md:text-5xl font-extrabold leading-[1.7] text-white">تعلّم بخطوات واضحة، <span className="text-sky">وتقدّم بثقة</span></h1>
-        <p className="mt-4 text-muted text-lg">دروس مرتبة وفيديوهات محمية ومتابعة دقيقة لتقدمك في كل مادة.</p>
+        <p className="mt-4 text-muted text-lg">عايزك تبقي فاهم ان الفترة دي مختلفة عن أي فترة تانية عشتها في حياتك لانك بتحدد فيها طريقك اللي هتكمل بيه باقي حياتك. عشان كدا لازم تتأكد ان كلنا هنكون واقفين جنبك وبندعمك وبنساعدك...</p>
         <div className="mt-8 flex gap-3 flex-wrap"><Link to="/courses" className="btn btn-p">استكشف الكورسات</Link><Link to="/register" className="btn">سجّل الآن</Link></div></div>
       <div className="aspect-[4/3] rounded-[2rem] bg-gradient-to-br from-sky to-brand relative overflow-hidden p-5 flex items-end shadow-[0_0_60px_rgba(70,224,255,.25)]"><div className="w-full"><LastWatched /></div></div>
     </section>
