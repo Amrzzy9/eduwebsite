@@ -7,12 +7,12 @@ import Login from './pages/Login'; import Register from './pages/Register'; impo
 import Lesson from './pages/Lesson'; import Admin from './pages/Admin'; import NotFound from './pages/NotFound'
 import ForgotPassword from './pages/ForgotPassword'; import ResetPassword from './pages/ResetPassword'
 export default function App() {
-  return (<BrowserRouter basename={import.meta.env.BASE_URL}><AuthProvider><Routes><Route element={<PublicLayout />}>
+  return (<BrowserRouter basename={import.meta.env.BASE_URL}><AuthProvider><BgDots /><Routes><Route element={<PublicLayout />}>
     <Route path="/" element={<Home />} /><Route path="/courses" element={<Courses />} /><Route path="/courses/:courseId" element={<CourseDetails />} />
     <Route path="/login" element={<Login />} /><Route path="/register" element={<Register />} />
+    <Route path="/forgot-password" element={<ForgotPassword />} /><Route path="/reset-password" element={<ResetPassword />} />
     <Route path="/dashboard" element={<Protected><Dashboard /></Protected>} />
     <Route path="/lessons/:lessonId" element={<Protected><Lesson /></Protected>} />
     <Route path="/admin" element={<Protected admin><Admin /></Protected>} /><Route path="*" element={<NotFound />} />
-    <Route path="/forgot-password" element={<ForgotPassword />} /><Route path="/reset-password" element={<ResetPassword />} />
   </Route></Routes></AuthProvider></BrowserRouter>)
 }
