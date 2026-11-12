@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 /* ===== الخطوط ===== */
-@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-bold.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-book.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-heavy.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-thin.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-medium.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-heavy.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
 
 /* ===== الأساسيات ===== */
 body{@apply bg-page text-ink font-sans;font-weight:400}
@@ -16,12 +16,12 @@ h1{font-weight:900}
 h2,h3,h4,b,strong{font-weight:700}
 small,.text-sm,.text-xs{font-weight:300}
 
-/* خلفية radial ثابتة (تترسم مرة واحدة، بدون لاج) */
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;transform:translateZ(0);
-  background:
-    radial-gradient(40rem 26rem at 85% 8%,rgba(168,129,251,.32),transparent 65%),
-    radial-gradient(34rem 24rem at 8% 45%,rgba(139,92,246,.22),transparent 65%),
-    radial-gradient(30rem 20rem at 90% 85%,rgba(251,146,60,.08),transparent 65%)}
+/* ===== خلفية: دواير طافية ===== */
+.bg-dots{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.dot{position:absolute;border-radius:9999px;will-change:transform;
+  background:radial-gradient(circle,rgba(168,129,251,.45),rgba(168,129,251,0) 70%);
+  animation:dotFloat 14s ease-in-out infinite}
+@keyframes dotFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
 
 /* ===== كروت radial (خفيفة، بدون blur) ===== */
 .glass{position:relative;
@@ -40,6 +40,5 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;tr
 /* طفو عمودي خفيف */
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .float-y{animation:floatY 7s ease-in-out infinite;will-change:transform}
-
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
