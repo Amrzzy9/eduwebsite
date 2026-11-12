@@ -22,14 +22,14 @@ export default function Home() {
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[15px] font-bold text-sky">
             <span className="w-2 h-2 rounded-full bg-[#fb923c]" />
-            تيم الشاطر يرحب بكم
+            تيم  الشاطر  يرحب  بكم
           </span>
 
           <h1 className="mt-6 text-white">
             {/* 1st Sentence */}
             <span 
               style={{ 
-                fontSize: '90px', 
+                fontSize: '100px', 
                 display: 'block', 
                 // NOTE: Change vertical space (distance between 1st and 2nd sentence) here:
                 marginBottom: '-40px', 
@@ -42,7 +42,7 @@ export default function Home() {
 
             {/* 2nd Sentence (forced to stay in one single line using 'whitespace-nowrap') */}
 <span
-  style={{ fontSize: '50px' }}
+  style={{ fontSize: '55px' }}
   className="inline-block bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent whitespace-nowrap text-[35px] md:text-[50px]"
 >
   مهما كانت التحديات.
