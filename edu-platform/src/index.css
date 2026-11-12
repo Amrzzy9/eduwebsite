@@ -17,12 +17,19 @@ h1{font-weight:900}
 h2,h3,h4,b,strong{font-weight:700}
 small,.text-sm,.text-xs{font-weight:300}
 
-/* ===== خلفية: دواير طافية ===== */
+/* ===== خلفية: دايرة واحدة كبيرة طافية ===== */
 .bg-dots{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.dot{position:absolute;border-radius:9999px;will-change:transform;
-  background:radial-gradient(circle,rgba(168,129,251,.6),rgba(168,129,251,0) 70%);
-  animation:dotFloat 14s ease-in-out infinite}
-@keyframes dotFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+.dot{position:absolute;top:50%;left:50%;
+  width:90rem;height:90rem;margin:-45rem 0 0 -45rem;
+  border-radius:9999px;will-change:transform;
+  background:radial-gradient(circle,rgba(168,129,251,.45),rgba(168,129,251,.15) 40%,rgba(168,129,251,0) 70%);
+  animation:dotDrift 30s ease-in-out infinite}
+@keyframes dotDrift{
+  0%,100%{transform:translate(-25vw,-20vh)}
+  25%{transform:translate(25vw,-15vh)}
+  50%{transform:translate(20vw,25vh)}
+  75%{transform:translate(-20vw,20vh)}
+}
 
 /* ===== كروت radial ===== */
 .glass{position:relative;
