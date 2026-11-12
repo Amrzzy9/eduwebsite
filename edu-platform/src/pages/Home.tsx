@@ -67,15 +67,15 @@ export default function Home() {
             style={{background:'radial-gradient(circle at 50% 40%,rgba(196,140,255,.55),rgba(124,58,237,.35) 45%,#222a4a 80%)'}}
           >
             {/* Person image clipped inside the circle */}
-            <img 
-              src="/dr-yasin.png" 
-              alt="Dr Yasin" 
-              className="absolute bottom-0 w-auto object-contain pointer-events-none" 
-              style={{ 
-                height: '130%',                     // 1. Size (increase/decrease percentage)
-                transform: 'translate(0px, 0px)'    // 2. Movement: translate(X-axis, Y-axis)
-              }}
-            />
+<img 
+  src="/dr-yasin.png" 
+  alt="Dr Yasin" 
+  className="absolute bottom-0 w-auto object-contain pointer-events-none" 
+  style={{ 
+    height: '100%',                             // Keep base height fixed
+    transform: 'translate(0px, 0px) scale(1.3)'  // X, Y, and Uniform Scale
+  }}
+/>
 
             <div className="relative z-10 w-full p-8">
               <LastWatched />
