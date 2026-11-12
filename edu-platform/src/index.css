@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== الخطوط ===== */
-@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+/* ===== الخط: Hala ===== */
+@font-face{font-family:'Hala';src:url('/fonts/Hala-Bold.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Hala';src:url('/fonts/Hala-Bold.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Hala';src:url('/fonts/Hala-Bold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Hala';src:url('/fonts/Hala-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
 
 /* ===== الأساسيات ===== */
 body{@apply bg-page text-ink font-sans}
