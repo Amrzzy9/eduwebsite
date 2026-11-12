@@ -37,7 +37,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;tr
 .btn-p{@apply bg-[#a881fb] text-white border-[#a881fb] hover:bg-[#b99bfc]}
 .input{@apply w-full rounded-xl border border-white/15 bg-card px-4 py-2.5 text-ink}
 
-/* طفو عمودي خفيف للدايرة كلها */
+/* طفو عمودي خفيف */
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 .float-y{animation:floatY 4s ease-in-out infinite;will-change:transform}
 
