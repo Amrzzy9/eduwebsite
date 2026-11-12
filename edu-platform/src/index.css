@@ -3,12 +3,11 @@
 @tailwind utilities;
 
 /* ===== الخطوط ===== */
-@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-bold.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-thin.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-heavy.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-medium.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-thin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-heavy.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
 /* ===== الأساسيات ===== */
 body{@apply bg-page text-ink font-sans;
   background-image:radial-gradient(55rem 28rem at 15% -5%,rgba(168,129,251,.18),transparent 60%),radial-gradient(45rem 28rem at 100% 45%,rgba(251,146,60,.07),transparent 60%);
@@ -28,5 +27,12 @@ button,input,select,textarea{font-family:inherit}
 .btn{@apply inline-block rounded-xl px-6 py-2.5 font-bold border border-sky text-sky transition hover:bg-white/10}
 .btn-p{@apply bg-[#a881fb] text-white border-[#a881fb] hover:bg-[#b99bfc]}
 .input{@apply w-full rounded-xl border border-white/15 bg-card px-4 py-2.5 text-ink}
+
+/* ===== توزيع الأوزان ===== */
+body{font-weight:400}
+h1{font-weight:900}
+h2,h3,h4{font-weight:700}
+b,strong{font-weight:700}
+small,.text-sm,.text-xs{font-weight:300}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
