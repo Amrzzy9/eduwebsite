@@ -62,7 +62,7 @@ export default function Home() {
 
 <div 
   className="relative w-full max-w-[26rem] aspect-square" 
-  style={{ transform: 'translateX(-40px)' }} // Use negative px for left, positive px for right
+  style={{ transform: 'translateX(-130px)' }} // Use negative px for left, positive px for right
 >
           <div className="absolute -inset-6 rounded-full border border-dashed border-white/10" />
           <div
