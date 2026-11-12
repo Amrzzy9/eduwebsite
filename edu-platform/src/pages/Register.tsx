@@ -25,7 +25,7 @@ export default function Register() {
     const email = f.email.trim(); const phone = normalizePhone(f.phone)
     if (!f.name.trim()) return setErr('اكتب الاسم الكامل')
     if (!EMAIL_RE.test(email)) return setErr('البريد الإلكتروني غير صحيح، لازم يحتوي على @ ونطاق مثل gmail.com')
-    if (!PHONE_RE.test(phone)) return setErr('رقم الهاتف لازم يكون مصري بصيغة +201012345678')
+    if (!PHONE_RE.test(phone)) return setErr('رقم الهاتف لازم يكون مصري.')
     if (f.pw.length < 8) return setErr('كلمة المرور 8 أحرف على الأقل')
     if (f.pw !== f.pw2) return setErr('كلمتا المرور غير متطابقتين')
     setBusy(true)
@@ -40,10 +40,10 @@ export default function Register() {
   }
 
   return (<main className="max-w-md mx-auto px-4 py-12"><form onSubmit={submit} className="glass rounded-3xl p-6 space-y-4" noValidate>
-    <h1 className="text-2xl">إنشاء حساب</h1>
+    <h1 className="text-3xl">إنشــاء حســاب</h1>
     <input className="input" required placeholder="الاسم الكامل" value={f.name} onChange={set('name')} />
-    <input className="input" dir="ltr" type="email" required placeholder="البريد الإلكتروني (name@gmail.com)" value={f.email} onChange={set('email')} />
-    <input className="input" dir="ltr" type="tel" required placeholder="+201012345678" value={f.phone} onChange={set('phone')} />
+    <input className="input" dir="ltr" type="email" required placeholder="البريد الإلكتروني" value={f.email} onChange={set('email')} />
+    <input className="input" dir="ltr" type="tel" required placeholder="رقم الهاتف" value={f.phone} onChange={set('phone')} />
     <input className="input" type="password" required placeholder="كلمة المرور" value={f.pw} onChange={set('pw')} />
     <input className="input" type="password" required placeholder="تأكيد كلمة المرور" value={f.pw2} onChange={set('pw2')} />
     {err && <p className="text-red-400 text-sm">{err}</p>}{msg && <p className="text-sky text-sm">{msg}</p>}
