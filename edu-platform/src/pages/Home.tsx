@@ -73,7 +73,7 @@ export default function Home() {
   className="absolute bottom-0 w-auto object-contain pointer-events-none" 
   style={{ 
     height: '100%',                             // Keep base height fixed
-    transform: 'translate(0px, 0px) scale(1.3)'  // X, Y, and Uniform Scale
+    transform: 'translate(13px, 20px) scale(1.2)'  // X, Y, and Uniform Scale
   }}
 />
 
