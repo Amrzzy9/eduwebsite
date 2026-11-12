@@ -37,7 +37,7 @@ export default function Home() {
                 letterSpacing: '0px'   
               }} 
             >
-              أنت قدّها ...
+             أنت قدّهـــا...
             </span>
 
             {/* 2nd Sentence (forced to stay in one single line using 'whitespace-nowrap') */}
