@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ShieldCheck, ListChecks, LineChart, Layers } from 'lucide-react'
@@ -26,14 +25,25 @@ export default function Home() {
             تيم الشاطر يرحب بكم
           </span>
 
-          <h1 className="mt-6 leading-[1.65] text-white">
-            <span style={{ fontSize: '130px' }}>
-              أنت قدّها .....
+          <h1 className="mt-6 text-white">
+            {/* 1st Sentence */}
+            <span 
+              style={{ 
+                fontSize: '90px', 
+                display: 'block', 
+                // NOTE: Change vertical space (distance between 1st and 2nd sentence) here:
+                marginBottom: '-5px', 
+                // NOTE: Change horizontal space (letter spacing / distance between letters) here:
+                letterSpacing: '0px'   
+              }} 
+            >
+              أنت قدّها ...
             </span>
-            <br />
+
+            {/* 2nd Sentence (forced to stay in one single line using 'whitespace-nowrap') */}
             <span
-              style={{ fontSize: '60px' }}
-              className="bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent"
+              style={{ fontSize: '70px', display: 'block' }}
+              className="bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent whitespace-nowrap"
             >
               مهما كانت التحديات.
             </span>
