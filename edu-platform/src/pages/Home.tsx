@@ -69,8 +69,12 @@ export default function Home() {
             {/* Person image clipped inside the circle */}
             <img 
               src="/dr-yasin.png" 
-              alt="Person" 
-              className="absolute bottom-0 h-[110%] w-auto object-contain pointer-events-none" 
+              alt="Dr Yasin" 
+              className="absolute bottom-0 w-auto object-contain pointer-events-none" 
+              style={{ 
+                height: '130%',                     // 1. Size (increase/decrease percentage)
+                transform: 'translate(0px, 0px)'    // 2. Movement: translate(X-axis, Y-axis)
+              }}
             />
 
             <div className="relative z-10 w-full p-8">
