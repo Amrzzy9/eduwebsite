@@ -11,4 +11,4 @@ No `404.html` exists, so Cloudflare serves `index.html` for unknown paths (SPA m
 Repo Settings > Pages > Source: GitHub Actions; add the two secrets; run the "GitHub Pages" workflow (it sets the base path and copies 404.html).
 ## Notes
 Static hosting does not provide the database, auth or video storage. Host videos elsewhere and paste `video_url` or `embed_url` on a lesson.
-Paid lesson video URLs are protected only by RLS on the lessons row; for stronger protection use signed URLs from your video provider via a server function (not built).
+Paid lesson video URLs are protected only by RLS on the lessons row; for stronger protection use signed URLs from your video provider via a server function (not built)...
