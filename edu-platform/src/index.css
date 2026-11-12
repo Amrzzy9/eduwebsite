@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 /* ===== الخطوط ===== */
-@font-face{font-family:'Zain';src:url('/fonts/ZAIN mob variable 200 .woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Zain';src:url('/fonts/ZAIN mob variable 400 .woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Zain';src:url('/fonts/ZAIN mob variable 600 .woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Zain';src:url('/fonts/ZAIN mob variable 800 .woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-bold.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-book.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-heavy.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-thin.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Qatar';src:url('/fonts/qatar-2022-arabic-medium.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 
 /* ===== الأساسيات ===== */
 body{@apply bg-page text-ink font-sans;font-weight:400}
