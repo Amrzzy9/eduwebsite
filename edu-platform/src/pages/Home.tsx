@@ -60,33 +60,28 @@ export default function Home() {
         </div>
 
 
-<div 
-  className="relative w-full max-w-[26rem] aspect-square" 
-  style={{ transform: 'translateX(-130px)' }} // Use negative px for left, positive px for right
+<div
+  className="relative w-full max-w-[26rem] aspect-square"
+  style={{ transform: 'translateX(-130px)' }}
 >
-          <div className="absolute -inset-6 rounded-full border border-dashed border-white/10" />
-          <div
-            className="absolute inset-0 rounded-full border border-white/10 overflow-hidden flex items-end justify-center"
-            style={{background:'radial-gradient(circle at 50% 40%,rgba(196,140,255,.55),rgba(124,58,237,.35) 45%,#222a4a 80%)'}}
-          >
-            {/* Person image clipped inside the circle */}
-<img 
-  src="/dr-yasin.png" 
-  alt="Dr Yasin" 
-  className="absolute bottom-0 w-auto object-contain pointer-events-none" 
-  style={{ 
-    height: '100%',                             // Keep base height fixed
-    transform: 'translate(13px, 20px) scale(1.2)'  // X, Y, and Uniform Scale
-  }}
-/>
-
-            <div className="relative z-10 w-full p-8">
-              <LastWatched />
-            </div>
-          </div>
-        </div>
-
-
+  <div className="float-y absolute inset-0">
+    <div className="absolute -inset-6 rounded-full border border-dashed border-white/10" />
+    <div
+      className="absolute inset-0 rounded-full border border-white/10 overflow-hidden flex items-end justify-center"
+      style={{background:'radial-gradient(circle at 50% 40%,rgba(196,140,255,.55),rgba(124,58,237,.35) 45%,#222a4a 80%)'}}
+    >
+      <img
+        src="/dr-yasin.png"
+        alt="Dr Yasin"
+        className="absolute bottom-0 w-auto object-contain pointer-events-none"
+        style={{ height: '100%', transform: 'translate(13px, 20px) scale(1.2)' }}
+      />
+      <div className="relative z-10 w-full p-8">
+        <LastWatched />
+      </div>
+    </div>
+  </div>
+</div>
         
       </section>
 
