@@ -1,0 +1,36 @@
+create extension if not exists pgcrypto;
+create table profiles(id uuid primary key references auth.users on delete cascade, full_name text not null, phone text, avatar_url text, role text not null default 'student', created_at timestamptz default now());
+create table courses(id uuid primary key default gen_random_uuid(), title text not null, description text, thumbnail_url text, price numeric not null default 0, duration_days int not null default 30, lessons_count int not null default 0, is_published bool default false, created_at timestamptz default now());
+create table units(id uuid primary key default gen_random_uuid(), course_id uuid references courses on delete cascade, title text not null, position int default 0);
+create table lessons(id uuid primary key default gen_random_uuid(), unit_id uuid references units on delete cascade, course_id uuid references courses on delete cascade, title text not null, description text, video_ref text, pdf_path text, position int default 0, is_free bool default false);
+create table packages(id uuid primary key default gen_random_uuid(), name text not null, kind text check (kind in ('single','bundle')) not null, price numeric not null, duration_days int not null, is_active bool default true);
+create table package_courses(package_id uuid references packages on delete cascade, course_id uuid references courses on delete cascade, primary key(package_id,course_id));
+create table payment_methods(id uuid primary key default gen_random_uuid(), name text not null, instructions text, is_active bool default true);
+create table payment_requests(id uuid primary key default gen_random_uuid(), user_id uuid not null references profiles default auth.uid(), package_id uuid references packages, method_id uuid references payment_methods, reference text, proof_path text, status text not null default 'pending' check (status in ('pending','approved','rejected')), created_at timestamptz default now());
+create table subscriptions(id uuid primary key default gen_random_uuid(), user_id uuid not null references profiles, package_id uuid references packages, starts_at timestamptz default now(), expires_at timestamptz not null, status text not null default 'active');
+create table lesson_progress(user_id uuid references profiles default auth.uid(), lesson_id uuid references lessons on delete cascade, position_seconds int default 0, completed bool default false, updated_at timestamptz default now(), primary key(user_id,lesson_id));
+create function handle_new_user() returns trigger language plpgsql security definer set search_path=public as $$
+begin insert into profiles(id,full_name,phone) values(new.id, coalesce(new.raw_user_meta_data->>'full_name',''), new.raw_user_meta_data->>'phone'); return new; end $$;
+create trigger on_auth_user_created after insert on auth.users for each row execute function handle_new_user();
+create function has_course_access(c uuid) returns bool language sql security definer stable set search_path=public as $$
+ select exists(select 1 from subscriptions s join package_courses pc on pc.package_id=s.package_id where s.user_id=auth.uid() and s.status='active' and s.expires_at>now() and pc.course_id=c) $$;
+alter table profiles enable row level security; alter table courses enable row level security; alter table units enable row level security;
+alter table lessons enable row level security; alter table packages enable row level security; alter table package_courses enable row level security;
+alter table payment_methods enable row level security; alter table payment_requests enable row level security;
+alter table subscriptions enable row level security; alter table lesson_progress enable row level security;
+create policy p_self_read on profiles for select using (id=auth.uid());
+create policy p_self_upd on profiles for update using (id=auth.uid()) with check (id=auth.uid() and role='student');
+create policy c_read on courses for select using (is_published);
+create policy u_read on units for select using (exists(select 1 from courses c where c.id=course_id and c.is_published));
+create policy l_read on lessons for select using (is_free or has_course_access(course_id));
+create policy pk_read on packages for select using (is_active);
+create policy pkc_read on package_courses for select using (true);
+create policy pm_read on payment_methods for select using (is_active);
+create policy pr_read on payment_requests for select using (user_id=auth.uid());
+create policy pr_ins on payment_requests for insert with check (user_id=auth.uid() and status='pending');
+create policy s_read on subscriptions for select using (user_id=auth.uid());
+create policy lp_all on lesson_progress for all using (user_id=auth.uid()) with check (user_id=auth.uid());
+insert into storage.buckets(id,name,public) values ('payment-proofs','payment-proofs',false),('avatars','avatars',true),('thumbnails','thumbnails',true) on conflict do nothing;
+create policy proofs_ins on storage.objects for insert with check (bucket_id='payment-proofs' and (storage.foldername(name))[1]=auth.uid()::text);
+create policy proofs_sel on storage.objects for select using (bucket_id='payment-proofs' and (storage.foldername(name))[1]=auth.uid()::text);
+create policy av_write on storage.objects for all using (bucket_id='avatars' and (storage.foldername(name))[1]=auth.uid()::text) with check (bucket_id='avatars' and (storage.foldername(name))[1]=auth.uid()::text);
