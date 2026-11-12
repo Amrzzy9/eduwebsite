@@ -20,26 +20,25 @@ small,.text-sm,.text-xs{font-weight:300}
 /* ===== خلفية: دايرة واحدة كبيرة طافية ===== */
 .bg-dots{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .dot{position:absolute;top:50%;left:50%;
-  width:90rem;height:90rem;margin:-45rem 0 0 -45rem;
-  border-radius:9999px;will-change:transform;
-  --c:150 110 235;      /* اللون: R G B (بنفسجي ناعم) */
-  --o:16%;              /* الشفافية بالنسبة المئوية */
+  width:70rem;height:70rem;margin:-35rem 0 0 -35rem;
+  border-radius:9999px;
+  --c:150 110 235;      /* اللون R G B */
+  --o:16%;              /* الشفافية */
   background:radial-gradient(circle closest-side,
     rgb(var(--c) / var(--o)) 0%,
-    rgb(var(--c) / calc(var(--o) * .92)) 8%,
-    rgb(var(--c) / calc(var(--o) * .78)) 18%,
-    rgb(var(--c) / calc(var(--o) * .60)) 30%,
-    rgb(var(--c) / calc(var(--o) * .42)) 42%,
-    rgb(var(--c) / calc(var(--o) * .26)) 54%,
-    rgb(var(--c) / calc(var(--o) * .13)) 66%,
-    rgb(var(--c) / calc(var(--o) * .05)) 80%,
+    rgb(var(--c) / calc(var(--o) * .6)) 30%,
+    rgb(var(--c) / calc(var(--o) * .25)) 55%,
+    rgb(var(--c) / calc(var(--o) * .07)) 80%,
     rgb(var(--c) / 0%) 100%);
-  animation:dotDrift 30s ease-in-out infinite}
+  transform:translate3d(-20vw,-15vh,0);
+  will-change:transform;
+  backface-visibility:hidden;
+  animation:dotDrift 40s ease-in-out infinite}
 @keyframes dotDrift{
-  0%,100%{transform:translate(-25vw,-20vh)}
-  25%{transform:translate(25vw,-15vh)}
-  50%{transform:translate(20vw,25vh)}
-  75%{transform:translate(-20vw,20vh)}
+  0%,100%{transform:translate3d(-20vw,-15vh,0)}
+  25%{transform:translate3d(20vw,-10vh,0)}
+  50%{transform:translate3d(15vw,20vh,0)}
+  75%{transform:translate3d(-15vw,15vh,0)}
 }
 
 /* ===== كروت radial ===== */
