@@ -22,12 +22,18 @@ small,.text-sm,.text-xs{font-weight:300}
 .dot{position:absolute;top:50%;left:50%;
   width:90rem;height:90rem;margin:-45rem 0 0 -45rem;
   border-radius:9999px;will-change:transform;
-  --c:168 129 251;      /* اللون: R G B (بدون فواصل) */
-  --o:15%;              /* ← الشفافية هنا بالنسبة المئوية */
-  background:radial-gradient(circle,
-    rgb(var(--c) / var(--o)),
-    rgb(var(--c) / calc(var(--o) / 3)) 40%,
-    rgb(var(--c) / 0%) 70%);
+  --c:150 110 235;      /* اللون: R G B (بنفسجي ناعم) */
+  --o:16%;              /* الشفافية بالنسبة المئوية */
+  background:radial-gradient(circle closest-side,
+    rgb(var(--c) / var(--o)) 0%,
+    rgb(var(--c) / calc(var(--o) * .92)) 8%,
+    rgb(var(--c) / calc(var(--o) * .78)) 18%,
+    rgb(var(--c) / calc(var(--o) * .60)) 30%,
+    rgb(var(--c) / calc(var(--o) * .42)) 42%,
+    rgb(var(--c) / calc(var(--o) * .26)) 54%,
+    rgb(var(--c) / calc(var(--o) * .13)) 66%,
+    rgb(var(--c) / calc(var(--o) * .05)) 80%,
+    rgb(var(--c) / 0%) 100%);
   animation:dotDrift 30s ease-in-out infinite}
 @keyframes dotDrift{
   0%,100%{transform:translate(-25vw,-20vh)}
