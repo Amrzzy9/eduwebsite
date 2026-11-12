@@ -20,7 +20,7 @@ export default function Home() {
     <main className="max-w-6xl mx-auto px-4">
       <section className="pt-14 pb-16 grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-bold text-sky">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[15px] font-bold text-sky">
             <span className="w-2 h-2 rounded-full bg-[#fb923c]" />
             تيم الشاطر يرحب بكم
           </span>
@@ -32,7 +32,7 @@ export default function Home() {
                 fontSize: '90px', 
                 display: 'block', 
                 // NOTE: Change vertical space (distance between 1st and 2nd sentence) here:
-                marginBottom: '-5px', 
+                marginBottom: '-40px', 
                 // NOTE: Change horizontal space (letter spacing / distance between letters) here:
                 letterSpacing: '0px'   
               }} 
@@ -41,12 +41,12 @@ export default function Home() {
             </span>
 
             {/* 2nd Sentence (forced to stay in one single line using 'whitespace-nowrap') */}
-            <span
-              style={{ fontSize: '70px', display: 'block' }}
-              className="bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent whitespace-nowrap"
-            >
-              مهما كانت التحديات.
-            </span>
+<span
+  style={{ fontSize: '50px' }}
+  className="inline-block bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent whitespace-nowrap text-[35px] md:text-[50px]"
+>
+  مهما كانت التحديات.
+</span>
           </h1>
 
           <p className="mt-5 text-muted text-[18px] leading-loose max-w-xl">
