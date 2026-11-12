@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider, Protected } from './lib/auth'
 import PublicLayout from './layouts/PublicLayout'
+import BgDots from './components/BgDots'
 import Home from './pages/Home'; import Courses from './pages/Courses'; import CourseDetails from './pages/CourseDetails'
 import Login from './pages/Login'; import Register from './pages/Register'; import Dashboard from './pages/Dashboard'
 import Lesson from './pages/Lesson'; import Admin from './pages/Admin'; import NotFound from './pages/NotFound'
