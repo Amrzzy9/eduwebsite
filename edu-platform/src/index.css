@@ -1,8 +1,22 @@
-@tailwind base;@tailwind components;@tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== الخطوط ===== */
+@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'TheYearofHandicrafts';src:url('/fonts/TheYearofHandicrafts-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+
+/* ===== الأساسيات ===== */
 body{@apply bg-page text-ink font-sans}
+button,input,select,textarea{font-family:inherit}
+
 .glass{background:rgba(20,42,50,.55);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);border:1px solid rgba(255,255,255,.1);box-shadow:0 8px 32px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08)}
 .skeleton{@apply animate-pulse bg-mist rounded-2xl}
 .btn{@apply inline-block rounded-xl px-5 py-2.5 font-semibold border border-brand text-sky}
 .btn-p{@apply bg-brand text-white}
 .input{@apply w-full rounded-xl border border-white/10 bg-card px-4 py-2.5 text-ink}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
