@@ -60,7 +60,10 @@ export default function Home() {
         </div>
 
 
-<div className="relative mx-auto w-full max-w-[26rem] aspect-square">
+<div 
+  className="relative w-full max-w-[26rem] aspect-square" 
+  style={{ transform: 'translateX(-40px)' }} // Use negative px for left, positive px for right
+>
           <div className="absolute -inset-6 rounded-full border border-dashed border-white/10" />
           <div
             className="absolute inset-0 rounded-full border border-white/10 overflow-hidden flex items-end justify-center"
