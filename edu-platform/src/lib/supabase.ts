@@ -3,4 +3,4 @@ const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const key = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
 export const configured = Boolean(url && key)
 export const supabase = createClient(url || 'http://localhost:54321', key || 'missing-anon-key')
-export type Course = { id:string; title:string; description:string|null; thumbnail_url:string|null; price:number; duration_days:number; lessons_count:number }
+export type Course = { id:string; title:string; description:string|null; thumbnail_url:string|null; price:number; duration_days:number|null; lessons_count:number }
