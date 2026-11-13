@@ -4,6 +4,7 @@ import { Menu, X, GraduationCap } from 'lucide-react'
 import { useAuth } from '../lib/auth'
 import { supabase } from '../lib/supabase'
 import Avatar from './Avatar'
+import LastWatched from './LastWatched'
 export default function Navbar() {
   const [open, setOpen] = useState(false); const { session, profile } = useAuth(); const nav = useNavigate()
   const main: [string, string][] = [['/', 'الرئيسية'], ['/courses', 'الكورسات'],
@@ -28,6 +29,7 @@ export default function Navbar() {
         </div>
         <button className="md:hidden text-white" aria-label="القائمة" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
       </nav>
+      {session && <div className="max-w-6xl mx-3 md:mx-auto mb-3"><LastWatched /></div>}
       {open && <div className="glass md:hidden mx-3 mb-3 rounded-2xl p-3 flex flex-col">
         {main.map(([to, t]) => <NavLink key={to} to={to} end={to === '/'} onClick={() => setOpen(false)} className={row}>{t}</NavLink>)}
         {session ? <button onClick={out} className="px-3 py-3 text-start text-muted">خروج</button>
