@@ -76,9 +76,6 @@ export default function Home() {
         className="absolute bottom-0 w-auto object-contain pointer-events-none"
         style={{ height: '100%', transform: 'translate(13px, 20px) scale(1.2)' }}
       />
-      <div className="relative z-10 w-full p-8">
-        <LastWatched />
-      </div>
     </div>
   </div>
 </div>
