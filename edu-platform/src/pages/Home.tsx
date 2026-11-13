@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ShieldCheck, ListChecks, LineChart, Layers } from 'lucide-react'
 import { supabase, Course } from '../lib/supabase'
+import { useAuth } from '../lib/auth'
 import CourseCard from '../components/CourseCard'
-import LastWatched from '../components/LastWatched'
 
 const why = [[Layers,'دروس منظمة'],[ListChecks,'تعلّم متدرج'],[ShieldCheck,'وصول آمن'],[LineChart,'متابعة التقدم']] as const
 
 export default function Home() {
+  const { session } = useAuth()
   const [courses, setCourses] = useState<Course[]|null>(null)
   const [err, setErr] = useState(false)
 
@@ -26,27 +27,15 @@ export default function Home() {
           </span>
 
           <h1 className="mt-6 text-white">
-            {/* 1st Sentence */}
-            <span 
-              style={{ 
-                fontSize: '100px', 
-                display: 'block', 
-                // NOTE: Change vertical space (distance between 1st and 2nd sentence) here:
-                marginBottom: '-40px', 
-                // NOTE: Change horizontal space (letter spacing / distance between letters) here:
-                letterSpacing: '0px'   
-              }} 
-            >
-             أنت قدّهـــا...
+            <span style={{ fontSize: '100px', display: 'block', marginBottom: '-40px', letterSpacing: '0px' }}>
+              أنت قدّهـــا...
             </span>
-
-            {/* 2nd Sentence (forced to stay in one single line using 'whitespace-nowrap') */}
-<span
-  style={{ fontSize: '55px' }}
-  className="inline-block bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent whitespace-nowrap text-[35px] md:text-[50px]"
->
-  مهما كانت التحديات.
-</span>
+            <span
+              style={{ fontSize: '55px' }}
+              className="inline-block bg-gradient-to-l from-[#fb923c] via-[#d68aa6] to-[#a46cf5] bg-clip-text text-transparent whitespace-nowrap text-[35px] md:text-[50px]"
+            >
+              مهما كانت التحديات.
+            </span>
           </h1>
 
           <p className="mt-5 text-muted text-[18px] leading-loose max-w-xl">
@@ -55,31 +44,26 @@ export default function Home() {
 
           <div className="mt-8 flex gap-3 flex-wrap">
             <Link to="/courses" className="btn btn-p">استكشف الكورسات</Link>
-            <Link to="/register" className="btn">سجّل الآن</Link>
+            {!session && <Link to="/register" className="btn">سجّل الآن</Link>}
           </div>
         </div>
 
-
-<div
-  className="relative w-full max-w-[26rem] aspect-square"
-  style={{ transform: 'translateX(-130px)' }}
->
-  <div className="float-y absolute inset-0">
-    <div className="absolute -inset-6 rounded-full border border-dashed border-white/10" />
-    <div
-      className="absolute inset-0 rounded-full border border-white/10 overflow-hidden flex items-end justify-center"
-      style={{background:'radial-gradient(circle at 50% 40%,rgba(196,140,255,.55),rgba(124,58,237,.35) 45%,#222a4a 80%)'}}
-    >
-      <img
-        src="/dr-yasin.png"
-        alt="Dr Yasin"
-        className="absolute bottom-0 w-auto object-contain pointer-events-none"
-        style={{ height: '100%', transform: 'translate(13px, 20px) scale(1.2)' }}
-      />
-    </div>
-  </div>
-</div>
-        
+        <div className="relative w-full max-w-[26rem] aspect-square" style={{ transform: 'translateX(-130px)' }}>
+          <div className="float-y absolute inset-0">
+            <div className="absolute -inset-6 rounded-full border border-dashed border-white/10" />
+            <div
+              className="absolute inset-0 rounded-full border border-white/10 overflow-hidden flex items-end justify-center"
+              style={{background:'radial-gradient(circle at 50% 40%,rgba(196,140,255,.55),rgba(124,58,237,.35) 45%,#222a4a 80%)'}}
+            >
+              <img
+                src="/dr-yasin.png"
+                alt="Dr Yasin"
+                className="absolute bottom-0 w-auto object-contain pointer-events-none"
+                style={{ height: '100%', transform: 'translate(13px, 20px) scale(1.2)' }}
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="glass rounded-3xl p-6 mb-8">
