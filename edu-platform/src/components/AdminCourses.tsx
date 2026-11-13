@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import LessonFilesAdmin from './LessonFilesAdmin'
 
 type C = { id: string; title: string; description: string | null; thumbnail_url: string | null; price: number; duration_days: number | null; is_published: boolean }
 type L = { id: string; title: string; video_url: string | null; position: number; is_free: boolean; is_hidden: boolean; publish_at: string | null }
