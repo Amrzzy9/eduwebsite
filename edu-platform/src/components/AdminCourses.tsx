@@ -16,6 +16,7 @@ const status = (l: L) => l.is_hidden ? 'مخفي' : l.publish_at && new Date(l.p
 function Lessons({ course, onBack }: { course: C; onBack: () => void }) {
   const [ls, setLs] = useState<L[]>([]); const [err, setErr] = useState(''); const [busy, setBusy] = useState(false)
   const [n, setN] = useState({ title: '', url: '', free: false, when: '' })
+  const [filesOpen, setFilesOpen] = useState<string | null>(null)
   const [ed, setEd] = useState<{ id: string; title: string; url: string; when: string } | null>(null)
   const load = async () => {
     const { data, error } = await supabase.from('lessons').select('id,title,video_url,position,is_free,is_hidden,publish_at').eq('course_id', course.id).order('position')
@@ -72,11 +73,14 @@ function Lessons({ course, onBack }: { course: C; onBack: () => void }) {
               <button onClick={() => move(i, -1)} disabled={i === 0} className="text-sky disabled:opacity-30">↑</button>
               <button onClick={() => move(i, 1)} disabled={i === ls.length - 1} className="text-sky disabled:opacity-30">↓</button>
               <button onClick={() => setEd({ id: l.id, title: l.title, url: l.video_url ?? '', when: toLocal(l.publish_at) })} className="text-sky">تعديل</button>
+              <button onClick={() => setFilesOpen(filesOpen === l.id ? null : l.id)} className="text-sky">الملفات</button>
               <button onClick={() => run(supabase.from('lessons').update({ is_hidden: !l.is_hidden }).eq('id', l.id))} className="text-sky">{l.is_hidden ? 'إظهار' : 'إخفاء'}</button>
               <button onClick={() => run(supabase.from('lessons').update({ is_free: !l.is_free }).eq('id', l.id))} className="text-sky">{l.is_free ? 'اجعله مدفوع' : 'اجعله مجاني'}</button>
               <button onClick={() => del(l.id)} className="text-red-400">حذف</button>
             </div>
-          </div></>}
+          </div>
+          {filesOpen === l.id && <LessonFilesAdmin lessonId={l.id} />}
+        </>}
       </li>)}</ul>}
   </div>)
 }
