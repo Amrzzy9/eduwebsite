@@ -53,9 +53,10 @@ small,.text-sm,.text-xs{font-weight:300}
 .btn{@apply inline-block rounded-xl px-6 py-2.5 font-bold border border-sky text-sky transition hover:bg-white/10}
 .btn-p{@apply bg-[#a881fb] text-white border-[#a881fb] hover:bg-[#b99bfc]}
 .input{@apply w-full rounded-xl border border-white/15 bg-card px-4 py-2.5 text-ink}
-
+.neon-price{color:#fde047;font-weight:700;text-shadow:0 0 6px rgba(253,224,71,.8),0 0 16px rgba(250,204,21,.55)}
 /* طفو عمودي خفيف */
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .float-y{animation:floatY 7s ease-in-out infinite;will-change:transform}
+
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
